@@ -8,7 +8,6 @@
 int main(void)
 {
 	int n;
-	int y;
 
 	for (n = 97; n < 123; n++)
 	{
