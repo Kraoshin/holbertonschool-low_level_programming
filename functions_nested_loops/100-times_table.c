@@ -59,7 +59,7 @@ void print_times_table(int n)
 					_putchar(' ');
 					_printf(a, b);
 				}
-				if (b == n)
+				if (b == 0)
 					_printf(a, b);
 
 			}
