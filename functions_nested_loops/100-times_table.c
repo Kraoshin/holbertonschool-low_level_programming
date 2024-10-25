@@ -40,26 +40,26 @@ void print_times_table(int n)
 
 				if (b > 0 && i >= 100)
 				{
-					_putchar(' ');
 					_putchar(',');
+					_putchar(' ');
 					_printf(a, b);
 				}
 				if (b > 0 && i >= 10 && i < 100)
 				{
-					_putchar(' ');
-					_putchar(' ');
 					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
 					_printf(a, b);
 				}
 				if (b > 0 && i <= 9)
 				{
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(' ');
 					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(' ');
 					_printf(a, b);
 				}
-				if (b == 0)
+				if (b == n)
 					_printf(a, b);
 
 			}
