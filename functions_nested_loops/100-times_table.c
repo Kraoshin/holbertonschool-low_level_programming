@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- *
- *
+ * _printf - print number using _putchar from 0 to 999.
+ * @a: multiplicator
+ * @b: multiplicated
  */
 
 void _printf(int a, int b)
@@ -20,6 +21,10 @@ void _printf(int a, int b)
 		_putchar((r / 10) + '0');
 	_putchar((r % 10) + '0');
 }
+/**
+ * print_times_table - function that prints the n times table, starting with 0.
+ * @n: the times table you want to display
+ */
 
 void print_times_table(int n)
 {
