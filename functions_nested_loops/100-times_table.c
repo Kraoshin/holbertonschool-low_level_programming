@@ -30,25 +30,37 @@ void print_times_table(int n)
 {
 	int a, b, i;
 
-	if (n < 15 && n > 0)
+	if (n < 15 && n >= 0)
 	{
 		for (a = 0; a <= n; a++)
 		{
 			for (b = 0; b <= n; b++)
 			{
 				i = (a * b);
-				_printf(a, b);
 
-				if (b != n)
+				if (b > 0 && i >= 100)
 				{
+					_putchar(' ');
 					_putchar(',');
-					_putchar(' ');
+					_printf(a, b);
 				}
-				if (b != n && i < 100)
+				if (b > 0 && i >= 10 && i < 100)
+				{
 					_putchar(' ');
-
-				if (b != n && i < 10)
 					_putchar(' ');
+					_putchar(',');
+					_printf(a, b);
+				}
+				if (b > 0 && i <= 9)
+				{
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(',');
+					_printf(a, b);
+				}
+				if (b == 0)
+					_printf(a, b);
 
 			}
 			_putchar ('\n');
