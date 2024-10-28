@@ -2,7 +2,7 @@
 
 /**
  * print_square - function that draws a straight line in the terminal.
- * @n: the number of '_' to be printed
+ * @size: the number of '_' to be printed
  */
 
 void print_square(int size)
