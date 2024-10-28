@@ -10,15 +10,17 @@ void print_diagonal(int n)
 	int boucle;
 	int space;
 
-	for (boucle = 0; boucle < n; boucle++)
-	{
-		if (n <= 0)
-			_putchar('\n');
-
-		for (space = 0; space < boucle; space++)
-			_putchar(' ');
-
-		_putchar(92);
+	if (n <= 0)
 		_putchar('\n');
-	}
+
+
+	else 
+		for (boucle = 0; boucle < n; boucle++)
+		{
+			for (space = 0; space < boucle; space++)
+				_putchar(' ');
+
+			_putchar(92);
+			_putchar('\n');
+		}
 }
