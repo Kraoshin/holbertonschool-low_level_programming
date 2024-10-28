@@ -14,7 +14,7 @@ void print_diagonal(int n)
 		_putchar('\n');
 
 
-	else 
+	else
 		for (boucle = 0; boucle < n; boucle++)
 		{
 			for (space = 0; space < boucle; space++)
