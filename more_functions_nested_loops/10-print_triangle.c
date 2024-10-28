@@ -20,11 +20,11 @@ void print_triangle(int size)
 		{
 			for (horizontal = 0; horizontal < vertical; horizontal++)
 				_putchar(' ');
-			for (horizontal = size; horizontal > vertical; horizontal --)
+			for (horizontal = size; horizontal > vertical; horizontal--)
 				_putchar('#');
 
 			_putchar('#');
 			_putchar('\n');
 		}
-	}	
+	}
 }
