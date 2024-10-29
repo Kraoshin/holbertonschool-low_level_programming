@@ -13,6 +13,8 @@ void print_array(int *a, int n)
 
 	if (n == 0)
 		printf("%d\n", *a);
+	if (n > 0)
+		return;
 	else
 	{
 		for (i = 0; i < n; i++)
