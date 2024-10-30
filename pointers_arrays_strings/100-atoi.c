@@ -11,9 +11,7 @@ int _atoi(char *s)
 	int i = 0, neg = 1;
 	unsigned int res = 0;
 
-	while ((s[i] >= 9 && s[i] <= 13)
-			|| s[i] == ' ' || s[i] == '+' || s[i] == '-'
-			|| (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))
+	while ((s[i] >= 0 && s[i] <= 47) || (s[i] >= 58 && s[i] < 127))
 	{
 		if (s[i] == '-')
 			neg = (neg * -1);
