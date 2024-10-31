@@ -14,6 +14,8 @@ char *cap_string(char *str)
 
 	while (str[i] != '\0')
 	{
+		if (i == 0 && str[i] >= 97 && str[i] <= 122)
+			str[i] -= 32;
 		for (j = 0; j < 13; j++)
 		{
 			if (str[i] == spe[j] && str[i + 1] >= 97 && str[i + 1] <= 122)
