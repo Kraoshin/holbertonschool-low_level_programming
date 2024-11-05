@@ -20,8 +20,6 @@ char *_strchr(char *s, char c)
 		i++;
 	if (s[i] == a)
 		return ((char *)(s + i));
-	else if (s[i] == '\0')
-		return ((char *)(s + i));
-
-	return ('\0');
+	else
+		return ('\0');
 }
