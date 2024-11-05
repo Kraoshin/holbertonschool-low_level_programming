@@ -10,20 +10,17 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int count = 0;
-	int len, i = 0;
+	int i, k, counter = 0;
 
-	for (len = 0; accept[len] != '\0'; len++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == accept[len])
+		if (counter != i)
+			break;
+		for (k = 0; accept[k] != '\0'; k++)
 		{
-			count++;
-			i++;
-			len = 0;
+			if (s[i] == accept[k])
+				counter++;
 		}
 	}
-	if (count == 0 || s[i] == '\0')
-		return (count);
-	else
-		return (count + 1);
+	return (counter);
 }
