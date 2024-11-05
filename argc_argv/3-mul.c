@@ -10,21 +10,18 @@
 
 int main(int argc, char *argv[])
 {
-	int i, sum = 1;
+	int num1, num2;
 
-	if (argc < 2)
+	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	for (i = 1; i < argc; i++)
-	{
-		int x = strtol(argv[i], NULL, 10);
 
-		sum = sum * x;
-	}
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
 
-	printf("%d\n", sum);
+	printf("%d\n", num1 * num2);
 
 	return (0);
 }
