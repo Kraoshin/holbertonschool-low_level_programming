@@ -64,6 +64,12 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+
+	else if (num < 0)
+	{
+		printf("0\n");
+		return (0);
+	}
 	else
 		return (change(num));
 }
