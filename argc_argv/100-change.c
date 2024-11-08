@@ -57,13 +57,15 @@ int change(int num)
 
 int main(int argc, char *argv[])
 {
+	int num;
+
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	int num = atoi(argv[1]);
+	num = atoi(argv[1]);
 
 	if (num < 0)
 	{
