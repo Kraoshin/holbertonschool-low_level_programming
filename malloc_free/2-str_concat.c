@@ -31,8 +31,10 @@ char *str_concat(char *s1, char *s2)
 	int len;
 	char *mem, *temp;
 
-	if (_strlen(s1) == 0 || _strlen(s2) == 0)
-		return (NULL);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
 	len = _strlen(s1) + _strlen(s2);
 
