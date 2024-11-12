@@ -3,7 +3,10 @@
 #include <stdlib.h>
 
 /**
+ * _strdup - pointer to a new alloc space of memory pointing to a copy of a str
+ * @str: the string we want to copy
  *
+ * Return: the copied str if enough space, NULL otherwise
  */
 
 char *_strdup(char *str)
