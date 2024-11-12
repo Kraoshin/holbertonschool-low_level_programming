@@ -39,9 +39,9 @@ char *_malloc(char *s1, char *s2, unsigned int n)
 	len2 = _strlen(s2);
 
 	if (n >= len2)
-		mem = malloc(sizeof(char) * (len1 + len2 + 1));
-	else
-		mem = malloc(sizeof(char) * (len1 + n + 1));
+		n = len2;
+	mem = malloc(sizeof(char) * len1 + n + 1);
+
 	if (mem == NULL)
 		return (NULL);
 	return (mem);
@@ -58,19 +58,25 @@ char *_malloc(char *s1, char *s2, unsigned int n)
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i;
+	unsigned int i, len1, len2;
 	char *mem, *temp;
+
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+
+	if (n >= len2)
+		n = len2;
 
 	mem = _malloc(s1, s2, n);
 
 	temp = mem;
 
-	for (i = 0; s1[i] != '\0'; i++)
+	for (i = 0; i < len1; i++)
 	{
 		*temp = s1[i];
 		temp++;
 	}
-	for (i = 0; s2[i] != '\0' && i < n; i++)
+	for (i = 0; i < n; i++)
 	{
 		*temp = s2[i];
 		temp++;

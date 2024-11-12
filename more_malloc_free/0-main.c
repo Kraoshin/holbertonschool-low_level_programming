@@ -15,11 +15,11 @@ int main(void)
     float *f;
     double *d;
 
-    c = malloc_checked(sizeof(char) * 1024);
+    c = malloc_checked(sizeof(char) * 0);
     printf("%p\n", (void *)c);
-    i = malloc_checked(sizeof(int) * 402);
+    i = malloc_checked(sizeof(int) * 0);
     printf("%p\n", (void *)i);
-    f = malloc_checked(sizeof(float) * 100000000);
+    f = malloc_checked(sizeof(float) * 0);
     printf("%p\n", (void *)f);
     d = malloc_checked(INT_MAX);
     printf("%p\n", (void *)d);
