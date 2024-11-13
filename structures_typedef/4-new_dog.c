@@ -3,37 +3,6 @@
 #include <stdio.h>
 
 /**
- * _strdup - pointer to a new alloc space of memory pointing to a copy of a str
- * @str: the string we want to copy
- *
- * Return: the copied str if enough space, NULL otherwise
- */
-
-char *_strdup(char *str)
-{
-	char *array;
-	int len = 0, i;
-
-	if (str == NULL)
-		return (NULL);
-
-	while (str[len] != '\0')
-		len++;
-
-	array = malloc(len + 1);
-
-	if (array == NULL)
-		return (NULL);
-
-	for (i = 0; i <= len; i++)
-		array[i] = str[i];
-
-	array[len] = '\0';
-
-	return (array);
-}
-
-/**
  * new_dog - create a new dog
  * @name: pointer to the mem adress of var name in struct dog
  * @age: same as name but with age
@@ -45,23 +14,42 @@ char *_strdup(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog;
+	int len1 = 0, len2 = 0, i;
 
 	dog = malloc(sizeof(dog_t));
-
 	if (dog == NULL)
 		return (NULL);
 
-	dog->name = _strdup(name);
+	while (name[len1] != '\0')
+		len1++;
+
+	dog->name = malloc(sizeof(char) * (len1 + 1));
 
 	if (dog->name == NULL)
+	{
+		free(dog);
 		return (NULL);
+	}
+
+	for (i = 0; i < len1)
+		dog->name[i] = name[i];
+	dog->name[len1] = '\0';
+
+	while (owner[len2] != '\0')
+		len2++;
+
+	dog->owner = malloc(sizeof(char) * (len2 + 1));
+	if (dog->owner == NULL)
+	{
+		free(dog->name);
+		free(dog);
+		return (NULL);
+	}
+	for (i = 0; i < len2; i++)
+		dog->owner[i] = owner[i];
+	dog->owner[len2] = '\0';
 
 	dog->age = age;
-
-	dog->owner = _strdup(owner);
-
-	if (dog->owner == NULL)
-		return (NULL);
 
 	return (dog);
 }
