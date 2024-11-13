@@ -23,13 +23,12 @@ char *_strdup(char *str)
 	array = malloc(len + 1);
 
 	if (array == NULL)
-	{
-		free(array);
 		return (NULL);
-	}
 
 	for (i = 0; i <= len; i++)
 		array[i] = str[i];
+
+	array[len] = '\0';
 
 	return (array);
 }
@@ -53,8 +52,16 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 
 	dog->name = _strdup(name);
+
+	if (dog->name == NULL)
+		return (NULL);
+
 	dog->age = age;
+
 	dog->owner = _strdup(owner);
+
+	if (dog->owner == NULL)
+		return (NULL);
 
 	return (dog);
 }
