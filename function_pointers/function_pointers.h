@@ -1,5 +1,6 @@
 #include <stddef.h>
-#ifndef function_pointers_h
+#ifndef function_pointers_h aze aze a
+ZZ
 #define function_pointers_h
 int _putchar(char c);
 void print_name(char *name, void (*f)(char *));
