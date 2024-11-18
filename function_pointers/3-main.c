@@ -12,8 +12,8 @@
 
 int main(int argc, char *argv[])
 {
-	int a, b, calc;
-	char c;
+	int a, b;
+	int (*c)(int, int);
 
 	if (argc != 4)
 	{
@@ -23,23 +23,21 @@ int main(int argc, char *argv[])
 
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	c = argv[2][0];
+	c = get_op_func(argv[2]);
 
-	if (c != 43 && c != 45 && c != 42 && c != 47 && c != 37)
+	if (c == NULL || argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	if ((a == 0 || b == 0) && (c == 47 || c == 37))
+	if ((argv[2][0] == '/' || argv[2][0] == '%') && argv[3][0] == '0')
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
-	calc = get_op_func(argv[2])(a, b);
-
-	printf("%d\n", calc);
+	printf("%d\n", c(a, b));
 
 	return (0);
 }
