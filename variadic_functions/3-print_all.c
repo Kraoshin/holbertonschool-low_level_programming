@@ -70,7 +70,7 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
-		while (var[j].id != NULL)
+		while (var[j].id)
 		{
 			if (*var[j].id == format[i])
 			{
