@@ -7,10 +7,26 @@
 
 void print_all(const char * const format, ...)
 {
+<<<<<<< HEAD
 	va_list valist;
 	unsigned int i = 0, j, c = 0;
 	char *str;
 	const char t_arg[] = "cifs";
+=======
+	va_list args;
+	char *separator = "";
+	int i = 0, j = 0;
+
+	get_op var[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string},
+		{NULL, NULL}
+	};
+
+	va_start(args, format);
+>>>>>>> 5e59c14 (change alias name of the struct)
 
 	va_start(valist, format);
 	while (format && format[i])

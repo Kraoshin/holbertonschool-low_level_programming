@@ -14,5 +14,5 @@ typedef struct id
 	char *id;
 	void (*f)(va_list args);
 
-} id_t;
+} get_op;
 #endif
