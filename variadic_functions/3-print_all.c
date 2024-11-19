@@ -7,7 +7,7 @@
 
 void print_char(va_list args)
 {
-        printf("%c", va_arg(args, int));
+	printf("%c", va_arg(args, int));
 }
 
 /**
@@ -17,7 +17,7 @@ void print_char(va_list args)
 
 void print_int(va_list args)
 {
-        printf("%d", va_arg(args, int));
+	printf("%d", va_arg(args, int));
 }
 
 /**
@@ -27,7 +27,7 @@ void print_int(va_list args)
 
 void print_float(va_list args)
 {
-        printf("%f", va_arg(args, double));
+	printf("%f", va_arg(args, double));
 }
 
 /**
@@ -37,14 +37,14 @@ void print_float(va_list args)
 
 void print_string(va_list args)
 {
-        char *x = va_arg(args, char*);
+	char *x = va_arg(args, char*);
 
-        if (x == NULL)
-{
-                printf("(nil)");
-                return;
-        }
-        printf("%s", x);
+	if (x == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", x);
 }
 
 /**
@@ -54,36 +54,36 @@ void print_string(va_list args)
 
 void print_all(const char * const format, ...)
 {
-        va_list args;
-        char *separator = "";
-        int i = 0, j = 0;
+	va_list args;
+	char *separator = "";
+	int i = 0, j = 0;
 
-        get_op var[] = {
-                {"c", print_char},
-                {"i", print_int},
-                {"f", print_float},
-                {"s", print_string},
-                {NULL, NULL}
-        };
+	get_op var[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string},
+		{NULL, NULL}
+	};
 
-        va_start(args, format);
+	va_start(args, format);
 
-        while (format && format[i])
-        {
-                while (var[j].op)
-                {
-                        if (*var[j].op == format[i])
-                        {
-                                printf("%s", separator);
-                                var[j].f(args);
-                                separator = ", ";
-                        }
-                        j++;
-                }
-                j = 0;
-i++;
-        }
-        printf("\n");
+	while (format && format[i])
+	{
+		while (var[j].op)
+		{
+			if (*var[j].op == format[i])
+			{
+				printf("%s", separator);
+				var[j].f(args);
+				separator = ", ";
+			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	printf("\n");
 
-        va_end(args);
+	va_end(args);
 }
