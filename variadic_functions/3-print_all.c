@@ -1,89 +1,50 @@
 #include "variadic_functions.h"
 
 /**
- * print_char - print char
- * @args: list of args
- */
-
-void print_char(va_list args)
-{
-	printf("%c", va_arg(args, int));
-}
-
-/**
- * print_int - print char
- * @args: list of args
- */
-
-void print_int(va_list args)
-{
-	printf("%d", va_arg(args, int));
-}
-
-/**
- * print_float - print char
- * @args: list of args
- */
-
-void print_float(va_list args)
-{
-	printf("%f", va_arg(args, double));
-}
-
-/**
- * print_string - print char
- * @args: list of args
- */
-
-void print_string(va_list args)
-{
-	char *x = va_arg(args, char*);
-
-	if (x == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", x);
-}
-
-/**
  * print_all - print all type of arg passed in the variadic function
  * @format: the list of types of arg
  */
 
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	char *separator = "";
-	int i = 0, j = 0;
+	va_list valist;
+	unsigned int i = 0, j, c = 0;
+	char *str;
+	const char t_arg[] = "cifs";
 
-	id_t var[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string},
-		{NULL, NULL}
-	};
-
-	va_start(args, format);
-
+	va_start(valist, format);
 	while (format && format[i])
 	{
-		while (var[j].id)
-		{
-			if (*var[j].id == format[i])
-			{
-				printf("%s", separator);
-				var[j].f(args);
-				separator = ", ";
-			}
-			j++;
-		}
 		j = 0;
-		i++;
+		while (t_arg[j])
+		{
+			if (format[i] == t_arg[j] && c)
+			{
+				printf(", ");
+				break;
+			} j++;
+		}
+		switch (format[i])
+		{
+		case 'c':
+			printf("%c", va_arg(valist, int)), c = 1;
+			break;
+		case 'i':
+			printf("%d", va_arg(valist, int)), c = 1;
+			break;
+		case 'f':
+			printf("%f", va_arg(valist, double)), c = 1;
+			break;
+		case 's':
+			str = va_arg(valist, char *), c = 1;
+			if (!str)
+			{
+				printf("(nil)");
+				break;
+			}
+			printf("%s", str);
+			break;
+		} i++;
 	}
-	printf("\n");
-
-	va_end(args);
+	printf("\n"), va_end(valist);
 }
