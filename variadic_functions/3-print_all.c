@@ -58,7 +58,7 @@ void print_all(const char * const format, ...)
         char *separator = "";
         int i = 0, j = 0;
 
-        id_t var[] = {
+        get_op var[] = {
                 {"c", print_char},
                 {"i", print_int},
                 {"f", print_float},
@@ -70,9 +70,9 @@ void print_all(const char * const format, ...)
 
         while (format && format[i])
         {
-                while (var[j].id)
+                while (var[j].op)
                 {
-                        if (*var[j].id == format[i])
+                        if (*var[j].op == format[i])
                         {
                                 printf("%s", separator);
                                 var[j].f(args);
