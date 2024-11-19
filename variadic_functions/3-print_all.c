@@ -39,10 +39,12 @@ void print_string(va_list args)
 {
 	char *x = va_arg(args, char*);
 
-	if (x)
-		printf("%s", x);
-	else
+	if (x == NULL)
+	{
 		printf("(nil)");
+		return (1);
+	}
+	printf("%s", x);
 }
 
 /**
