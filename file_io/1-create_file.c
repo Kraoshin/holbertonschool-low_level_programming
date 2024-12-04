@@ -12,7 +12,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int f_o, numl = 0, permissions;
+	int f_o, numl = 0, write_b;
 
 	if (!filename)
 		return (-1);
@@ -27,9 +27,9 @@ int create_file(const char *filename, char *text_content)
 		while (text_content[numl])
 			numl++;
 
-		permissions = write(f_o, text_content, numl);
+		write_b = write(f_o, text_content, numl);
 
-		if (permissions == -1)
+		if (write_b == -1)
 		{
 			close(f_o);
 			return (-1);
