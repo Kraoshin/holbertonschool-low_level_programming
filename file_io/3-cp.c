@@ -7,6 +7,7 @@
  *
  * Return: A pointer to the allocated mem
  */
+
 char *create_buffer(char *file)
 {
 	char *buffer;
